@@ -1,14 +1,12 @@
-# MP4Box
+## MP4Box
 
-PREFIX ?= /opt/gpac
+GPAC_VERSION = git
 
-GPAC_VERSION = svn-r4027
+all: bin/MP4Box
 
-all: $(PREFIX)/bin/MP4Box
-
-$(PREFIX)/bin/MP4Box:
+bin/MP4Box:
 	cd src/gpac-$(GPAC_VERSION) && \
-	./configure --prefix=$(PREFIX) --mandir=$(PREFIX)/share/man --strip \
+	./configure --prefix=$(PWD) --mandir=$(PWD)/share/man \
 		--static-mp4box \
 		--sdl-cfg=/usr/bin/false \
 		--disable-ipv6 --disable-ssl --disable-platinum \
