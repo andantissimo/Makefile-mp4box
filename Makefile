@@ -8,7 +8,7 @@ bin/MP4Box:
 	cd src/gpac-$(GPAC_VERSION) && \
 	./configure --prefix=$(PWD) --mandir=$(PWD)/share/man \
 		--static-mp4box \
-		--sdl-cfg=/usr/bin/false \
+		--sdl-cfg=$(shell which false) \
 		--disable-ipv6 --disable-ssl --disable-platinum \
 		--disable-wx --disable-x11-shm --disable-x11-xv \
 		--disable-alsa --disable-oss-audio --disable-jack --disable-pulseaudio \
