@@ -1,6 +1,6 @@
 ## MP4Box
 
-GPAC_VERSION = git
+GPAC_VERSION = 0.6.0
 
 all: bin/MP4Box
 
