@@ -1,6 +1,6 @@
 ## MP4Box
 
-GPAC_VERSION = 0.6.1
+GPAC_VERSION = 0.7.1
 
 all: bin/MP4Box
 
