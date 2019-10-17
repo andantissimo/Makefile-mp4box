@@ -1,10 +1,11 @@
 ## MP4Box
 
-GPAC_VERSION = 0.7.1
+GPAC_VERSION = 0.8.0
+XZ_VERSION   = 5.2.4
 
 all: bin/MP4Box
 
-bin/MP4Box:
+bin/MP4Box: lib/liblzma.a
 	cd src/gpac-$(GPAC_VERSION) && \
 	./configure --prefix=$(PWD) --mandir=$(PWD)/share/man \
 		--static-mp4box \
@@ -18,4 +19,14 @@ bin/MP4Box:
 		--use-ogg=no --use-vorbis=no --use-theora=no \
 		--use-openjpeg=no --use-a52=no && \
 	$(MAKE) && \
+	$(MAKE) install clean
+
+lib/liblzma.a:
+	cd src/xz-$(XZ_VERSION) && \
+	./configure --prefix=$(PWD) --disable-dependency-tracking \
+		--disable-shared --enable-static \
+		--disable-xz --disable-xzdec \
+		--disable-lzmadec --disable-lzmainfo --disable-lzma-links \
+		--disable-scripts --disable-doc \
+		--disable-nls && \
 	$(MAKE) install clean
