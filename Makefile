@@ -4,6 +4,10 @@ GPAC_VERSION = 0.8.1
 
 all: bin/MP4Box
 
+clean:
+	$(RM) -r include lib share/gpac
+	find share/man/man1 -type f -not -name 'mp4box.1' -delete
+
 bin/MP4Box:
 	cd src/gpac-$(GPAC_VERSION) && \
 	./configure --prefix=$(PWD) --mandir=$(PWD)/share/man \
